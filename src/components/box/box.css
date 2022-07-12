@@ -1,0 +1,61 @@
+.box{
+    border: 2px solid var(--gray);
+    padding: 1rem;
+    text-align: center;
+    position: relative;
+}
+.letter{
+    position: absolute;
+    top: 8px;
+    left: 0;
+    right: 0;
+    font-size: 2rem;
+    font-weight: bold;
+}
+ 
+.letter_fill{
+    border-color: var(--gray-dark);
+}
+.last_letter{
+    animation: write .1s linear;
+}
+
+.box-place{
+    background-color: var(--green-box);
+    color: white;
+    border-color: var(--green-box);
+}
+.box-include{
+    background-color: var(--yellow-box);
+    color: white;
+    border-color: var(--yellow-box);
+}
+.box-noInclude{
+    background-color: var(--gray-box);
+    color: white;
+    border-color: var(--gray-box);
+}
+.check{
+    animation: check .3s linear;
+}
+
+@keyframes check {
+    from{
+        transform: rotateX(180deg);
+    }to{
+        transform: rotateX(360deg);
+    }
+}
+
+
+@keyframes write {
+    0%{
+        transform: scale(.8);
+    }
+    70%{
+        transform: scale(1.1);
+    }
+    100%{
+        transform: scale(1);
+    }
+}

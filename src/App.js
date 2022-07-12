@@ -1,25 +1,30 @@
-import logo from './logo.svg';
 import './App.css';
 
+import useWords from './hooks/useWords';
+
+import Board from './components/board/Board';
+import Header from './components/header/Header';
+import KeyBoard from './components/keyBoard/KeyBoard';
+
+const winner = 'COCHE';
+const maxTry = 5;
+
 function App() {
+  const [words, lastWord, lastKey] = useWords();
+
+  if (words.length>maxTry) return (<h1>End.</h1>)
+  else if (lastWord.join('')==winner) return(<h1>Winner</h1>)
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div className='Wrapper'>
+        <Header />
+        <Board words={words} lastWord={lastWord} lastKey={lastKey} winnerWord={winner}/>
+        <KeyBoard keys={words} />
+      </div>
     </div>
   );
+
+
 }
 
 export default App;
