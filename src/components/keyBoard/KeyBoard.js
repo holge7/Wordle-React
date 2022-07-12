@@ -5,7 +5,7 @@ import { useEffect, useState, useRef } from 'react';
 const keyBoard = [
     ['Q','W','E','R','T','Y','U','I','O','P'],
     ['A','S','D','F','G','H','J','K','L','Ñ'],
-    ['ENVIAR','Z','X','C','V','B','N','M', 'borr'],
+    ['ENTER','Z','X','C','V','B','N','M', 'BACKSPACE'],
 ]
 
 export default (props) => {
@@ -21,19 +21,17 @@ export default (props) => {
         
     }, [props.keys])
 
-    
+    const aux = (letter) => {
+        document.dispatchEvent(new KeyboardEvent('keyup', {'key':letter} ));
+    }
 
-    document.addEventListener('keyup', (e)=>{
-        console.log('keyup listener')
-        console.log(e)
-    })
 
     return (
         <div className="keyBoard">
             {keyBoard.map(row => 
                 <div className='keyBoard-row'>
                     {row.map(letter => 
-                        <div key={letter} className={`keyBoard-letter ${letters.includes(letter) ? 'keyBoard-letter-use' : ''}`}>{letter}</div>
+                        <div key={letter} onClick={()=>{aux(letter)}} className={`keyBoard-letter ${letters.includes(letter) ? 'keyBoard-letter-use' : ''}`}>{letter}</div>
                     )}
                 </div>
             )}

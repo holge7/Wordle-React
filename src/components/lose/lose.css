@@ -1,0 +1,50 @@
+.lose_wrapper{
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(145, 145, 145, 0.103);
+}
+
+.lose{
+    border: 2px solid;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    z-index: 10;
+    background-color: white;
+    width: 20rem;
+    height: 60vh;
+    animation: lose .3s ease-in;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+.lose_restart{
+    background-color: #87ba82;
+    border-radius: .5rem;
+    padding: 1.5rem 3rem;
+    font-size: 1.2rem;
+    font-weight: bold;
+    cursor: pointer;
+}
+.lose_word{
+    text-align: center;
+}
+
+@keyframes lose {
+    0%{
+        height: 0;
+    }
+    60%{
+        height: 70vh;
+        width: 18rem;
+    }
+    100%{
+        height: 60vh;
+        width: 20rem;
+    }
+}

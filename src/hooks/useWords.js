@@ -29,7 +29,7 @@ export default function useWords(){
             setLastWord(newLastWord);
         }
 
-        if(key == 'ENTER') {
+        if(lastWord.length>=5 && key == 'ENTER') {
             let newWords = [...words]
             newWords.push(lastWord)
             setWords(newWords);

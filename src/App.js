@@ -5,6 +5,7 @@ import useWords from './hooks/useWords';
 import Board from './components/board/Board';
 import Header from './components/header/Header';
 import KeyBoard from './components/keyBoard/KeyBoard';
+import Lose from './components/lose/Lose';
 
 const winner = 'COCHE';
 const maxTry = 5;
@@ -12,10 +13,9 @@ const maxTry = 5;
 function App() {
   const [words, lastWord, lastKey] = useWords();
 
-  if (words.length>maxTry) return (<h1>End.</h1>)
-  else if (lastWord.join('')==winner) return(<h1>Winner</h1>)
   return (
     <div className="App">
+      {(words.length>maxTry || lastWord.join('')==winner) && <Lose winner={winner} />}
       <div className='Wrapper'>
         <Header />
         <Board words={words} lastWord={lastWord} lastKey={lastKey} winnerWord={winner}/>

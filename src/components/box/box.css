@@ -36,7 +36,7 @@
     border-color: var(--gray-box);
 }
 .check{
-    animation: check .3s linear;
+    animation: check .4s linear;
 }
 
 @keyframes check {
